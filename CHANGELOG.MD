@@ -1,0 +1,1 @@
+## [0.0.1] Versão Inicial da Aplicação - 14-01-2023
