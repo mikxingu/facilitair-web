@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+
+{% block content%}
+<div class="ui input">
+    <input type="text" placeholder="Ticker">
+  </div>
+
+  <div class="ui input">
+    <input type="text" placeholder="CNPJ">
+  </div>
+  <div>
+    <button class="ui icon button">
+      <i class="plus icon"></i>
+    </button>
+  </div>
+  
+  <!-- <select class="ui dropdown">
+    <option value="">Ano</option>
+    <option value="0">2020</option>
+    <option value="1">2021</option>
+    <option value="2">2022</option>
+  </select> -->
+
+  <div class="ui checkbox">
+    <input type="checkbox" name="example">
+    <label>Não exibir ações sem valor</label>
+  </div>
+
+  <div class="ui checkbox">
+    <input type="checkbox" name="example">
+    <label>Não exibir ações sem CNPJ</label>
+  </div>
+  <div class="ui checkbox">
+    <input type="checkbox" name="example">
+    <label>Ocultar já lançadas</label>
+  </div>
+
+  <button class="ui button primary" >Aplicar</button>
+<table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Lançado</th>
+        <th>Ticker</th>
+        <th>Preço de fechamento Anual</th>
+        <th>CNPJ</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" name="lançado" checked="true"/> </td>
+        <td data-label="Name" bgcolor="silver">OIBR3</td>
+        <td data-label="Age" bgcolor="silver">0.76</td>
+        <td data-label="Job" bgcolor="silver">76.535.764/0001-43<button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
+      </tr>
+      <tr>
+        <td data-label="Lançado"><input type="checkbox" name="lançado"/> </td>
+        <td data-label="Name">TAEE3</td>
+        <td data-label="Age">12.12</td>
+        <td data-label="Job">07.859.971/0001-30</td>
+      </tr>
+      <tr>
+        <td data-label="Lançado"><input type="checkbox" name="lançado"/> </td>
+        <td data-label="Name">SANB3</td>
+        <td data-label="Age">14.21</td>
+        <td data-label="Job">90.400.888/0001-42</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock%}

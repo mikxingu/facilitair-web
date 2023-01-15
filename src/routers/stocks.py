@@ -23,10 +23,3 @@ async def get_all_stocks():
     tickers = get_stocks_db()
     return tickers
 
-@router.get("/{ticker}")
-async def get_all_stocks(ticker: str):
-    """
-    Retorna informações da ação para o ticker informado.
-    """
-    # TODO - CRIAR SERVIÇO NO BANCO PARA FAZER UMA QUERY PARA UMA AÇÃO ESPECÍFICA.
-    return ticker   
