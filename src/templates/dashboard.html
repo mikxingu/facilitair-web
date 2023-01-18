@@ -2,13 +2,18 @@
 
 
 {% block content%}
-<div class="ui input">
+  <div class="ui input">
     <input type="text" placeholder="Ticker">
   </div>
+
+<!--
 
   <div class="ui input">
     <input type="text" placeholder="CNPJ">
   </div>
+  
+-->
+
   <div>
     <button class="ui icon button">
       <i class="plus icon"></i>
@@ -22,6 +27,7 @@
     <option value="2">2022</option>
   </select> -->
 
+  <!--
   <div class="ui checkbox">
     <input type="checkbox" name="example">
     <label>Não exibir ações sem valor</label>
@@ -35,23 +41,35 @@
     <input type="checkbox" name="example">
     <label>Ocultar já lançadas</label>
   </div>
+  
 
   <button class="ui button primary" >Aplicar</button>
+  -->
 <table class="ui celled table">
     <thead>
       <tr>
         <th>Lançado</th>
         <th>Ticker</th>
-        <th>Preço de fechamento Anual</th>
+        <th>Razao Social</th>
+        <th>Quantidade</th>
+        <th>Preço médio</th>
         <th>CNPJ</th>
+        <th>Discriminação</th>
+        <th>Preço de fechamento Anual</th>
     </tr></thead>
     <tbody>
+      {% block row %}
       <tr>
-        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" name="lançado" checked="true"/> </td>
-        <td data-label="Name" bgcolor="silver">OIBR3</td>
-        <td data-label="Age" bgcolor="silver">0.76</td>
-        <td data-label="Job" bgcolor="silver">76.535.764/0001-43<button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
+        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" id="currentstock" name="conpleted" checked="true"/></td>
+        <td data-label="Ticker" bgcolor="silver">OIBR3</td>
+        <td data-label="RazaoSocial" bgcolor="silver">OI S.A.</td>
+        <td data-label="Quantidade" bgcolor="silver">20500</td>
+        <td data-label="PrecoMedio" bgcolor="silver">0.94</td>
+        <td data-label="CNPJ" bgcolor="silver">76.535.764/0001-43<button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
+        <td data-label="Discriminação" bgcolor="silver">{QUANTIDADE} ACOES {RAZAO_SOCIAL} COM PRECO MEDIO DE {PM} POR ACAO <button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
+        <td data-label="YearClose" bgcolor="silver">0.76</td>
       </tr>
+      {% endblock row %}
       <tr>
         <td data-label="Lançado"><input type="checkbox" name="lançado"/> </td>
         <td data-label="Name">TAEE3</td>
