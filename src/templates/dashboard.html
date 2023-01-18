@@ -20,22 +20,50 @@
     <button class="ui icon button" id="add_stock">
       <script>
         $(document).ready(function(){
-          $('#test').click(function() {
-            console.log("Ihul");
-});
+          
           $("#add_stock").click(function() {
             
             var stock_selected = document.getElementById("in_ticker");
             var ticker = stock_selected.value;
-            const companyName = "EMPRESA TESTE S.A" // TODO - COMPLETAR COM QUERY NO DB.
+
             var quantity = document.getElementById("in_quantity").value;
             var average = document.getElementById("in_average").value;
-            var cnpj = "00.000.000/0001-00" // TODO - COMPLETAR COM QUERY NO DB.
+            
+          
+
+            var result;
+
+          $.ajax({
+            type: "GET",
+            url: '/stock/'+ticker,
+            datatype: "json",
+            async: false,
+            success: function(data){
+              result = data;      
+            }
+          });
+
+          let cnpj = result[0]
+
+          let companyName = result[1]
+          
+          let year_close = result[2]
+            // var information = null;
+            
+            // $.get('/stock/'+ticker,  // url
+            //   function (data, textStatus, jqXHR) {  // success callback
+                
+            //     cnpj = data[0]
+            //     companyName = data[1]
+            //     year_close = data[2]
+            //     information = data
+            //     return information
+            // });
+
+            // console.log(information)
+
             var description = quantity + " ACOES "+ companyName + "COM PRECO MEDIO DE "+ average + " POR ACAO."
-            var year_close = 12.34 // TODO - COMPLETAR COM QUERY NO DB.
-
-
-
+            
             var markup = 
             "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
               "</td><td>" + companyName + "</td><td>" + quantity + "</td><td>" + average + 
