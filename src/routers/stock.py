@@ -1,4 +1,6 @@
 from fastapi import APIRouter
+from src.services import StocksService
+
 
 router = APIRouter(prefix="/stock", tags=["stock"])
 

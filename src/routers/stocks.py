@@ -1,25 +1,15 @@
-from fastapi import APIRouter
+# from fastapi import APIRouter
+# from src.services import StocksService
 
-###SQL
-import sqlite3 as sql
-database = sql.connect('./src/database/database.db')
+# all_stocks = StocksService.get_stocks_db()
 
-def get_stocks_db():
+# router = APIRouter(prefix="/stocks", tags=['stocks'])
 
-    with database:
-        cursor = database.cursor()
-        cursor.execute("SELECT ticker FROM stocks ")
-        stocks = cursor.fetchall()
-        return stocks
-    
-
-router = APIRouter(prefix="/stocks", tags=['stocks'])
-
-@router.get("")
-async def get_all_stocks():
-    """
-    Recupera todos os tickers cadastrados no banco
-    """
-    tickers = get_stocks_db()
-    return tickers
+# @router.get("")
+# async def get_all_stocks():
+#     """
+#     Recupera todos os tickers cadastrados no banco
+#     """
+#     tickers = StocksService.get_stocks_db()
+#     return tickers
 

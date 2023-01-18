@@ -1,18 +1,11 @@
 {% extends "layout.html" %}
 
-
 {% block content%}
-  <div class="ui input">
-    <input type="text" placeholder="Ticker">
-  </div>
-
-<!--
-
-  <div class="ui input">
-    <input type="text" placeholder="CNPJ">
-  </div>
-  
--->
+<select class="ui selection dropdown" name="tickers">
+  {% for stock in all_stocks %}
+    <option value="code">{{stock}}</option>
+  {% endfor %}
+</select>
 
   <div>
     <button class="ui icon button">
@@ -20,31 +13,6 @@
     </button>
   </div>
   
-  <!-- <select class="ui dropdown">
-    <option value="">Ano</option>
-    <option value="0">2020</option>
-    <option value="1">2021</option>
-    <option value="2">2022</option>
-  </select> -->
-
-  <!--
-  <div class="ui checkbox">
-    <input type="checkbox" name="example">
-    <label>Não exibir ações sem valor</label>
-  </div>
-
-  <div class="ui checkbox">
-    <input type="checkbox" name="example">
-    <label>Não exibir ações sem CNPJ</label>
-  </div>
-  <div class="ui checkbox">
-    <input type="checkbox" name="example">
-    <label>Ocultar já lançadas</label>
-  </div>
-  
-
-  <button class="ui button primary" >Aplicar</button>
-  -->
 <table class="ui celled table">
     <thead>
       <tr>

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
-from src.routers import stocks, stock, dashboard
+from src.routers import stock, dashboard
 
 tags_metadata = [{
     'name':'stocks',
@@ -23,5 +23,4 @@ def home(request: Request):
     })
 
 app.include_router(stock.router)
-app.include_router(stocks.router)
 app.include_router(dashboard.router)
