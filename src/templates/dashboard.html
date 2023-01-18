@@ -12,20 +12,22 @@
       <script>
         $(document).ready(function(){
           $("#add_stock").click(function() {
+            
             var stocks_selected = document.getElementById("in_ticker");
             var text = stocks_selected.value;
             // var value = stocks_selected.value;
             // var text = value.options[stocks_selected.selectedIndex].text;
-
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + text + "</td><td>" + text + "</td></tr>";
+            $("table tbody").append(markup);
             console.log("I Was Clicked! with ticker: " + text);
           })
-        })
+        });
       </script>
       <i class="plus icon"></i>
     </button>
   </div>
   
-<table class="ui celled table">
+<table class="ui celled table" id="stocks">
     <thead>
       <tr>
         <th>Lançado</th>
