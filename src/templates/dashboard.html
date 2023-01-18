@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content%}
-<select class="ui selection dropdown" name="tickers">
+<select class="ui selection dropdown" name="tickers" id="in_ticker">
   {% for stock in all_stocks %}
-    <option value="code">{{stock}}</option>
+    <option value={{stock}} id="in_stock">{{stock}}</option>
   {% endfor %}
 </select>
 
@@ -11,8 +11,13 @@
     <button class="ui icon button" id="add_stock">
       <script>
         $(document).ready(function(){
-          $("#add_stock").click(function(){
-            console.log("I Was Clicked!")
+          $("#add_stock").click(function() {
+            var stocks_selected = document.getElementById("in_ticker");
+            var text = stocks_selected.value;
+            // var value = stocks_selected.value;
+            // var text = value.options[stocks_selected.selectedIndex].text;
+
+            console.log("I Was Clicked! with ticker: " + text);
           })
         })
       </script>
