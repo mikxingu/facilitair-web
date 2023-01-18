@@ -7,19 +7,41 @@
   {% endfor %}
 </select>
 
+<div class="ui input">
+  <input type="number" placeholder="Quantidade" id="in_quantity" required="true">
+</div>
+
+<div class="ui input">
+  <input type="number" placeholder="Preco Medio" id="in_average" required="false">
+</div>
+<div>
+
   <div>
     <button class="ui icon button" id="add_stock">
       <script>
         $(document).ready(function(){
+          $('#test').click(function() {
+            console.log("Ihul");
+});
           $("#add_stock").click(function() {
             
-            var stocks_selected = document.getElementById("in_ticker");
-            var text = stocks_selected.value;
-            // var value = stocks_selected.value;
-            // var text = value.options[stocks_selected.selectedIndex].text;
-            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + text + "</td><td>" + text + "</td></tr>";
+            var stock_selected = document.getElementById("in_ticker");
+            var ticker = stock_selected.value;
+            const companyName = "EMPRESA TESTE S.A" // TODO - COMPLETAR COM QUERY NO DB.
+            var quantity = document.getElementById("in_quantity").value;
+            var average = document.getElementById("in_average").value;
+            var cnpj = "00.000.000/0001-00" // TODO - COMPLETAR COM QUERY NO DB.
+            var description = quantity + " ACOES "+ companyName + "COM PRECO MEDIO DE "+ average + " POR ACAO."
+            var year_close = 12.34 // TODO - COMPLETAR COM QUERY NO DB.
+
+
+
+            var markup = 
+            "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
+              "</td><td>" + companyName + "</td><td>" + quantity + "</td><td>" + average + 
+              "</td><td>" + cnpj + "</td><td>" + description + "</td><td>" + year_close + "</td>"
+                "</tr>";
             $("table tbody").append(markup);
-            console.log("I Was Clicked! with ticker: " + text);
           })
         });
       </script>
@@ -41,9 +63,9 @@
     </tr>
   </thead>
     <tbody>
-      {% block row %}
+      <!--
       <tr>
-        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" id="currentstock" name="conpleted" checked="true"/></td>
+        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" id="currentstock" name="completed" checked="true"/></td>
         <td data-label="Ticker" bgcolor="silver">OIBR3</td>
         <td data-label="RazaoSocial" bgcolor="silver">OI S.A.</td>
         <td data-label="Quantidade" bgcolor="silver">20500</td>
@@ -52,7 +74,7 @@
         <td data-label="Discriminação" bgcolor="silver">{QUANTIDADE} ACOES {RAZAO_SOCIAL} COM PRECO MEDIO DE {PM} POR ACAO <button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
         <td data-label="YearClose" bgcolor="silver">0.76</td>
       </tr>
-      {% endblock row %}
+      
       <tr>
         <td data-label="Lançado"><input type="checkbox" name="lançado"/> </td>
         <td data-label="Name">TAEE3</td>
@@ -60,11 +82,16 @@
         <td data-label="Job">07.859.971/0001-30</td>
       </tr>
       <tr>
-        <td data-label="Lançado"><input type="checkbox" name="lançado"/> </td>
-        <td data-label="Name">SANB3</td>
-        <td data-label="Age">14.21</td>
-        <td data-label="Job">90.400.888/0001-42</td>
+        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" id="currentstock" name="completed" checked="true"/></td>
+        <td data-label="Ticker" bgcolor="silver">SANB3</td>
+        <td data-label="RazaoSocial" bgcolor="silver">BANCO SANTANDER (BRASIL) S.A.</td>
+        <td data-label="Quantidade" bgcolor="silver">1000</td>
+        <td data-label="PrecoMedio" bgcolor="silver">13.50</td>
+        <td data-label="CNPJ" bgcolor="silver">90.400.888/0001-42<button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
+        <td data-label="Discriminação" bgcolor="silver">{QUANTIDADE} ACOES {RAZAO_SOCIAL} COM PRECO MEDIO DE {PM} POR ACAO <button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
+        <td data-label="YearClose" bgcolor="silver">14.21</td>
       </tr>
+      -->
     </tbody>
   </table>
 {% endblock%}

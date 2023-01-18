@@ -1,5 +1,6 @@
-###SQL
+from typing import List
 import sqlite3 as sql
+
 database = sql.connect('./src/database/database.db')
 
 def get_stocks_db():
@@ -10,7 +11,10 @@ def get_stocks_db():
         cursor = database.cursor()
         cursor.execute("SELECT ticker FROM stocks ")
         stocks = cursor.fetchall()
-        return stocks
+        list = []
+        for item in stocks:
+            list.append(item[0]) #TRANSFORMA A TUPLA RETORNADA PELO DB EM LISTA.
+        return list
 
 def get_stock_information(ticker):
     """

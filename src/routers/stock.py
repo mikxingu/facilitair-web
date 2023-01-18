@@ -9,5 +9,5 @@ async def get_single_stock(ticker: str):
     """
     Retorna informações da ação para o ticker informado.
     """
-    # TODO - CRIAR SERVIÇO NO BANCO PARA FAZER UMA QUERY PARA UMA AÇÃO ESPECÍFICA.
-    return ticker   
+    query_ticker = ticker.upper()
+    return StocksService.get_stock_information(query_ticker)
