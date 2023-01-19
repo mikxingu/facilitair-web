@@ -27,10 +27,9 @@
             var ticker = stock_selected.value;
 
             var quantity = document.getElementById("in_quantity").value;
+
             var average = document.getElementById("in_average").value;
             
-          
-
             var result;
 
           $.ajax({
@@ -48,26 +47,24 @@
           let companyName = result[1]
           
           let year_close = result[2]
-            // var information = null;
-            
-            // $.get('/stock/'+ticker,  // url
-            //   function (data, textStatus, jqXHR) {  // success callback
-                
-            //     cnpj = data[0]
-            //     companyName = data[1]
-            //     year_close = data[2]
-            //     information = data
-            //     return information
-            // });
+          
 
-            // console.log(information)
+          if (average){
+            year_sum = average * quantity
+          }
+          else {
+            average = year_close
+          }
 
-            var description = quantity + " ACOES "+ companyName + "COM PRECO MEDIO DE "+ average + " POR ACAO."
+          var description = quantity + " ACOES "+ companyName + " COM PRECO MEDIO DE "+ average + " POR ACAO."
+          
+          var year_sum = quantity * year_close
             
-            var markup = 
+          var markup = 
             "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
-              "</td><td>" + companyName + "</td><td>" + quantity + "</td><td>" + average + 
-              "</td><td>" + cnpj + "</td><td>" + description + "</td><td>" + year_close + "</td>"
+              "</td><td>" + cnpj + "</td><td>" + companyName + "</td><td>" + quantity + 
+              "</td><td>" + average + "</td><td>" + year_close + "</td><td>" + description + "</td><td>" +
+                year_sum
                 "</tr>";
             $("table tbody").append(markup);
           })
@@ -82,12 +79,13 @@
       <tr>
         <th>Lançado</th>
         <th>Ticker</th>
+        <th>CNPJ</th>
         <th>Razao Social</th>
         <th>Quantidade</th>
         <th>Preço médio</th>
-        <th>CNPJ</th>
+        <th>Preço final anual</th>
         <th>Discriminação</th>
-        <th>Preço de fechamento Anual</th>
+        <th>Situação em 31-12-2022</th>
     </tr>
   </thead>
     <tbody>
