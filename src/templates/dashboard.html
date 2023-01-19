@@ -59,17 +59,25 @@
 
           var description = quantity + " ACOES "+ companyName + " COM PRECO MEDIO DE "+ average + " POR ACAO."
           
-          var year_sum = quantity * year_close
+          var year_sum = Number(Math.round(parseFloat(quantity * year_close + 'e' + 2)) + 'e-' + 2).toFixed(2)
             
+          
           var markup = 
             "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
               "</td><td>" + cnpj + "</td><td>" + companyName + "</td><td>" + quantity + 
               "</td><td>" + average + "</td><td>" + year_close + "</td><td>" + description + "</td><td>" +
-                year_sum
+                "R$  " + year_sum
                 "</tr>";
             $("table tbody").append(markup);
+              clearFormData();
           })
         });
+        // LIMPA O FORM DE INPUT PARA NOVO LANÇAMENTO
+        function clearFormData(){
+          document.getElementById("in_quantity").value = null;
+          document.getElementById("in_average").value = null;
+
+        }
       </script>
       <i class="plus icon"></i>
     </button>
@@ -90,35 +98,6 @@
     </tr>
   </thead>
     <tbody>
-      <!--
-      <tr>
-        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" id="currentstock" name="completed" checked="true"/></td>
-        <td data-label="Ticker" bgcolor="silver">OIBR3</td>
-        <td data-label="RazaoSocial" bgcolor="silver">OI S.A.</td>
-        <td data-label="Quantidade" bgcolor="silver">20500</td>
-        <td data-label="PrecoMedio" bgcolor="silver">0.94</td>
-        <td data-label="CNPJ" bgcolor="silver">76.535.764/0001-43<button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
-        <td data-label="Discriminação" bgcolor="silver">{QUANTIDADE} ACOES {RAZAO_SOCIAL} COM PRECO MEDIO DE {PM} POR ACAO <button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
-        <td data-label="YearClose" bgcolor="silver">0.76</td>
-      </tr>
-      
-      <tr>
-        <td data-label="Lançado"><input type="checkbox" name="lançado"/> </td>
-        <td data-label="Name">TAEE3</td>
-        <td data-label="Age">12.12</td>
-        <td data-label="Job">07.859.971/0001-30</td>
-      </tr>
-      <tr>
-        <td data-label="Lançado" bgcolor="silver"><input type="checkbox" id="currentstock" name="completed" checked="true"/></td>
-        <td data-label="Ticker" bgcolor="silver">SANB3</td>
-        <td data-label="RazaoSocial" bgcolor="silver">BANCO SANTANDER (BRASIL) S.A.</td>
-        <td data-label="Quantidade" bgcolor="silver">1000</td>
-        <td data-label="PrecoMedio" bgcolor="silver">13.50</td>
-        <td data-label="CNPJ" bgcolor="silver">90.400.888/0001-42<button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
-        <td data-label="Discriminação" bgcolor="silver">{QUANTIDADE} ACOES {RAZAO_SOCIAL} COM PRECO MEDIO DE {PM} POR ACAO <button class="ui button"><i class="animated fade clipboard icon"></i></button></td>
-        <td data-label="YearClose" bgcolor="silver">14.21</td>
-      </tr>
-      -->
     </tbody>
   </table>
 {% endblock%}
