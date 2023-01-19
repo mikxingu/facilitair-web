@@ -29,6 +29,13 @@
 
             var quantity = document.getElementById("in_quantity").value;
 
+            number_quantity = Number(quantity);
+            
+            if (number_quantity == 0){
+              showError("Campo quantidade é obrigatório!!");
+              return;
+            }
+
             var average = document.getElementById("in_average").value;
             
             var result;
@@ -77,6 +84,11 @@
           document.getElementById("in_quantity").value = null;
           document.getElementById("in_average").value = null;
 
+        }
+
+        // EXIBE A MENSAGEM PASSADA COMO PARAMETRO NA TELA DO NAVEGADOR
+        function showError(message){
+          alert(message);
         }
       </script>
       <i class="plus icon"></i>
