@@ -11,7 +11,8 @@ tags_metadata = [{
 }
 ]
 
-app = FastAPI(openapi_tags=tags_metadata)
+app = FastAPI(openapi_tags=tags_metadata,
+              version='1.0.0')
 
 templates = Jinja2Templates(directory='./src/templates')
 
