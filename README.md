@@ -1,6 +1,8 @@
 # Facilita IR - WEB
 
-Informações de ativos listados na B3 para facilitar a declaração anual de imposto de renda IRPF.
+Informações de ativos listados na B3 para facilitar a declaração anual de imposto de renda IRPF. 
+
+![apresentacao](https://user-images.githubusercontent.com/30123586/226008336-32c831d6-628a-4d23-bc52-9d010916150f.PNG)
 
 
 # Disclaimer
