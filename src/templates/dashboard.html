@@ -50,12 +50,23 @@
             }
           });
 
-          let cnpj = result[0]
+          let type = result[0]
 
-          let companyName = result[1]
+          let cnpj = result[1]
+
+          let companyName = result[2]
           
-          let year_close = result[2]
-          
+          let year_close = result[3]
+
+
+          var unit
+
+          if (type == 2){
+            unit = " COTAS "
+          }
+          else {
+            unit = " ACOES "
+          }
 
           if (average){
             year_sum = average * quantity
@@ -64,7 +75,7 @@
             average = year_close
           }
 
-          var description = quantity + " ACOES "+ companyName + " COM PRECO MEDIO DE "+ average + " POR ACAO."
+          var description = quantity + unit + companyName + " COM PRECO MEDIO DE "+ average + " POR UNIDADE."
           
           var year_sum = Number(Math.round(parseFloat(quantity * year_close + 'e' + 2)) + 'e-' + 2).toFixed(2)
             
