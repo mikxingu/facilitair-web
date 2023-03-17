@@ -1,0 +1,125 @@
+<title>FacilitaIR - Dashboard</title>
+{% extends "layout.html" %}
+
+{% block content%}
+<select class="ui selection dropdown" name="tickers" id="in_ticker">
+  {% for stock in all_stocks %}
+    <option value={{stock}} id="in_stock">{{stock}}</option>
+  {% endfor %}
+</select>
+
+<div class="ui input">
+  <input type="number" placeholder="Quantidade" id="in_quantity" required="true">
+</div>
+
+<div class="ui input">
+  <input type="number" placeholder="Preco Medio" id="in_average" required="false">
+</div>
+<div>
+
+  <div>
+    <button class="ui icon button" id="add_stock">
+      <script>
+        $(document).ready(function(){
+          
+          $("#add_stock").click(function() {
+            
+            var stock_selected = document.getElementById("in_ticker");
+            var ticker = stock_selected.value;
+
+            var quantity = document.getElementById("in_quantity").value;
+
+            number_quantity = Number(quantity);
+            
+            if (number_quantity == 0){
+              showError("Campo quantidade é obrigatório!!");
+              return;
+            }
+
+            var average = document.getElementById("in_average").value;
+            
+            var result;
+
+          $.ajax({
+            type: "GET",
+            url: '/stock/'+ticker,
+            datatype: "json",
+            async: false,
+            success: function(data){
+              result = data;      
+            }
+          });
+
+          let type = result[0]
+
+          let cnpj = result[1]
+
+          let companyName = result[2]
+          
+          let year_close = result[3]
+
+
+          var unit
+
+          if (type == 2){
+            unit = " COTAS "
+          }
+          else {
+            unit = " ACOES "
+          }
+
+          if (average){
+            year_sum = average * quantity
+          }
+          else {
+            average = year_close
+          }
+
+          var description = quantity + unit + companyName + " COM PRECO MEDIO DE "+ average + " POR UNIDADE."
+          
+          var year_sum = Number(Math.round(parseFloat(quantity * year_close + 'e' + 2)) + 'e-' + 2).toFixed(2)
+            
+          var markup = 
+            "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
+              "</td><td>" + cnpj + "</td><td>" + companyName + "</td><td>" + quantity + 
+              "</td><td>" + average + "</td><td>" + year_close + "</td><td>" + description + "</td><td>" +
+                "R$  " + year_sum
+                "</tr>";
+            $("table tbody").append(markup);
+              clearFormData();
+          })
+        });
+        // LIMPA O FORM DE INPUT PARA NOVO LANÇAMENTO
+        function clearFormData(){
+          document.getElementById("in_quantity").value = null;
+          document.getElementById("in_average").value = null;
+
+        }
+
+        // EXIBE A MENSAGEM PASSADA COMO PARAMETRO NA TELA DO NAVEGADOR
+        function showError(message){
+          alert(message);
+        }
+      </script>
+      <i class="plus icon"></i>
+    </button>
+  </div>
+  
+<table class="ui celled table" id="stocks">
+    <thead>
+      <tr>
+        <th>Lançado</th>
+        <th>Ticker</th>
+        <th>CNPJ</th>
+        <th>Razao Social</th>
+        <th>Quantidade</th>
+        <th>Preço médio</th>
+        <th>Preço final anual</th>
+        <th>Discriminação sugerida</th>
+        <th>Situação em 31-12-2022</th>
+    </tr>
+  </thead>
+    <tbody>
+    </tbody>
+  </table>
+{% endblock%}

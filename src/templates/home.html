@@ -1,0 +1,36 @@
+{% extends "layout.html" %} 
+
+
+{% block content%}
+<title>Facilita IR - Home</title>
+
+<script>
+    $(document).ready(function(){
+        $("#open_dashboard").click(function(){
+            console.log("Clicked!")
+            var xhr = new XMLHttpRequest();
+            var url = '/dashboard';
+            xhr.open("GET", url, false)
+        })
+    })
+</script>
+
+<body>
+    <div class="ui text container">
+        <h1 class="ui inverted header">Facilita IR - Lançamento de ações</h1>
+        <h2>Informações sobre ações e FII's da bolsa sem complicação</h2>
+        <div id="open_dashboard" class="">
+            
+                <a href="/dashboard">
+                    <button class="ui toggle huge  primary button">Começar!
+                        <i class="right arrow icon">
+                        </i>
+                    </button>
+                </a>
+                
+            
+            
+        </div>
+    </div>
+</body>
+{% endblock%}
