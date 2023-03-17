@@ -7,6 +7,10 @@ e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ## [Unreleased]
 
+* Caixa de seleção de ativos personalizada
+
+## [1.1.1] - 17-03-2023
+## Added
 * Botão para facilitar a abertura de issue do projeto.
 * Documentação no README para auxiliar no uso dessa aplicação.
 * Disclaimer avisando cautela e responsabilidade com o uso dos dados contidos nessa aplicação.
