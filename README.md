@@ -9,13 +9,13 @@ Informações de ativos listados na B3 para facilitar a declaração anual de im
 **Atenção!** As informações dessa aplicação foram obtidos por meio da WEB. O desenvolvedor não se responsabiliza por erros no preenchimento da declaração.
 
 ## Como utilizar
-
+```
 1. Abra o aplicativo por meio [desse link](https://facilitair.herokuapp.com/).
 2. Clique em "Começar".
 3. Selecione o ativo no **dropdown**, insira a quantidade de ações e o preço médio.
 O campo **Quantidade** é obrigatório, e o campo **Preço Médio** será utilizado na discriminação sugerida. Caso não informe o preço médio, será considerado o preço de fechamento anual do ativo.
 4. Depois de preenchidas as informações, clique no "+" para adicionar o ativo à lista. O sistema trará automaticamente as informações sobre o ativo.
-
+```
 
 Caso não encontre algum ativo, ou o ativo esteja descrito como "SEM INFO", favor abrir uma issue [aqui](https://github.com/mikxingu/facilitair-web/issues) para que eu possa corrigir o problema.
 As informações contidas aqui foram obtidas por meio de webscrapping e um levantamento manual, logo, algumas informações podem estar incosistentes.
@@ -33,7 +33,3 @@ Lembrando que esse é e será sempre um software LIVRE.
 
 ## Motivação
 Em Breve
-
-## Upcoming Features
-Em Breve 
-
