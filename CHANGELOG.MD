@@ -9,6 +9,10 @@ e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 * Caixa de seleção de ativos personalizada
 
+## [1.1.2] - 25-03-2023
+## Added
+* Informações do FII **BRCR11** e inclusão do BDR **NUBR33**. Obrigado Alessandra :smile:
+
 ## [1.1.1] - 17-03-2023
 ## Added
 * Botão para facilitar a abertura de issue do projeto.
