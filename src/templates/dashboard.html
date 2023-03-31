@@ -21,6 +21,18 @@
     <button class="ui icon button" id="add_stock">
       <script>
         $(document).ready(function(){
+
+          $(document).on('change', '#stocks input[type="checkbox"]', function() {
+          // Get the table row that the checkbox is in
+          var row = $(this).closest('tr');
+  
+          // If the checkbox is checked, highlight the row
+          if ($(this).prop('checked')) {
+            row.css('background-color', '#dcdcdc');
+          } else {
+            row.css('background-color', '');
+          }
+        });
           
           $("#add_stock").click(function() {
             
