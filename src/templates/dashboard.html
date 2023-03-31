@@ -2,11 +2,24 @@
 {% extends "layout.html" %}
 
 {% block content%}
-<select class="ui selection dropdown" name="tickers" id="in_ticker">
-  {% for stock in all_stocks %}
-    <option value={{stock}} id="in_stock">{{stock}}</option>
-  {% endfor %}
-</select>
+<div>
+<div class="ui search">
+  <div class="ui icon input">
+    <input class="prompt" type="text" placeholder="Ativo...", id="in_ticker">
+    <i class="search icon"></i>
+  </div>
+  <div class="results"></div>
+</div>
+
+{% set stock_list = [] %}
+
+{% for stock in all_stocks %}
+    {% set _ = stock_list.append(stock) %}
+{% endfor %}
+
+<script>
+    var js_list = {{ stock_list | tojson }};
+</script>
 
 <div class="ui input">
   <input type="number" placeholder="Quantidade" id="in_quantity" required="true">
@@ -16,7 +29,7 @@
   <input type="number" placeholder="Preco Medio" id="in_average" required="false">
 </div>
 <div>
-
+</div>
   <div>
     <button class="ui icon button" id="add_stock">
       <script>
@@ -33,6 +46,17 @@
             row.css('background-color', '');
           }
         });
+        var content = [];
+
+          js_list.forEach(element => {
+            let object = { title: element};
+            content.push(object)
+          });
+
+           $('.ui.search')
+            .search({
+              source: content
+            });
           
           $("#add_stock").click(function() {
             
