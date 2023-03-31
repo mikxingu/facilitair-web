@@ -91,16 +91,20 @@
           
           var year_sum = Number(Math.round(parseFloat(quantity * year_close + 'e' + 2)) + 'e-' + 2).toFixed(2)
             
-          var markup = 
-            "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
-              "</td><td>" + cnpj + "</td><td>" + companyName + "</td><td>" + quantity + 
-              "</td><td>" + average + "</td><td>" + year_close + "</td><td>" + description + "</td><td>" +
-                "R$  " + year_sum
-                "</tr>";
-            $("table tbody").append(markup);
+           var markup = 
+                "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
+                  "</td><td>" + cnpj + "</td><td>" + companyName + "</td><td>" + quantity + 
+                  "</td><td>" + average + "</td><td>" + year_close + "</td><td>" + description + "</td><td>" +
+                    "R$  " + year_sum + "</td><td><button class='ui icon red button delete-row'><i class='trash icon'></i></button></td></tr>";
+              $("table tbody").append(markup);
               clearFormData();
-          })
-        });
+            });
+
+            $(document).on('click', '.delete-row', function() {
+              var row = $(this).closest('tr');
+              row.remove();
+            });
+          });
         // LIMPA O FORM DE INPUT PARA NOVO LANÇAMENTO
         function clearFormData(){
           document.getElementById("in_quantity").value = null;
