@@ -4,6 +4,8 @@ Informações de ativos listados na B3 para facilitar a declaração anual de im
 
 ![apresentacao](https://user-images.githubusercontent.com/30123586/226008336-32c831d6-628a-4d23-bc52-9d010916150f.PNG)
 
+# Release Notes
+Para visualizar as alterações efetuadas no projeto e novas features que serão implementadas, veja o [Changelog aqui](./CHANGELOG.MD)
 
 # Disclaimer
 **Atenção!** As informações dessa aplicação foram obtidas em sites públicos na WEB. O desenvolvedor não se responsabiliza por erros no preenchimento da declaração.

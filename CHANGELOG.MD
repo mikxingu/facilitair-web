@@ -7,7 +7,11 @@ e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ## [Unreleased]
 
-* Caixa de seleção de ativos personalizada
+## [1.2.0] - 31-03-2023
+## Added
+* Caixa de seleção de ativos personalizada.
+* Marcação(highlight) para os lançamentos efetuados.
+* Botão para excluir um registro.
 
 ## [1.1.2] - 25-03-2023
 ## Added
