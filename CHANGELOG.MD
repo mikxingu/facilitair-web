@@ -19,6 +19,7 @@ e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 * Atualização dos ativos:
     ``` 
     SAPR11
+    SANB11
     EQIN11
     HGLG11
     ```
