@@ -7,6 +7,25 @@ e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ## [Unreleased]
 
+## [1.2.1] - 21-04-2023
+## Added
+* Inclusão dos ativos:
+   ```
+   M1TA34
+   XPBR31
+   IVVB11 
+   ```
+
+* Atualização dos ativos:
+    ``` 
+    SAPR11
+    SANB11
+    EQIN11
+    HGLG11
+    ```
+
+
+
 ## [1.2.0] - 31-03-2023
 ## Added
 * Caixa de seleção de ativos personalizada.
