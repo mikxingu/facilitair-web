@@ -96,13 +96,7 @@
 
 
           var unit
-
-          if (type == 2){
-            unit = " COTAS "
-          }
-          else {
-            unit = " ACOES "
-          }
+          var unit_description
 
           if (average){
             year_sum = average * quantity
@@ -111,15 +105,47 @@
             average = year_close
           }
 
+          var type_string
+
+          switch (type) {
+            case 1:
+              type_string = "ACAO";
+              unit_description = "GRUPO:03 - CÓDIGO:01";
+              break;
+            case 2:
+              type_string = "FII";
+              unit_description = "GRUPO:07 - CÓDIGO:03";
+              unit = " COTAS ";
+              break;
+            case 3:
+              type_string = "BDR";
+              unit_description = "GRUPO:04 - CÓDIGO:04  ";
+              unit = " UNIDADES ";
+              break;
+            case 4:
+              type_string = "ETF";
+              unit_description = "GRUPO:07 - CÓDIGO:09  ";
+              unit = " COTAS ";
+              break;
+            
+            default:
+              type_string = "ACAO";
+              unit_description = "GRUPO:03 - CÓDIGO:01";
+              unit = " ACOES ";
+              break;
+            }
+          if (type == 0)
+
           var description = quantity + unit + companyName + " COM PRECO MEDIO DE "+ average + " POR UNIDADE."
           
           var year_sum = Number(Math.round(parseFloat(quantity * year_close + 'e' + 2)) + 'e-' + 2).toFixed(2)
             
-           var markup = 
-                "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + 
-                  "</td><td>" + cnpj + "</td><td>" + companyName + "</td><td>" + quantity + 
-                  "</td><td>" + average + "</td><td>" + year_close + "</td><td>" + description + "</td><td>" +
-                    "R$  " + year_sum + "</td><td><button class='ui icon red button delete-row'><i class='trash icon'></i></button></td></tr>";
+          var markup = 
+              "<tr><td><input type='checkbox' id='test' class='completed'></td><td>" + ticker + "</td><td>" + type_string + "<div><i class='question circle outline icon' title='" + unit_description + "'></i><div> " +
+              "</td><td>" + cnpj + "</td><td>" + companyName + "</td><td>" + quantity + 
+              "</td><td>" + average + "</td><td>" + year_close + "</td><td>" + description + "</td><td>" +
+              "R$  " + year_sum + "</td><td><button class='ui icon red button delete-row'><i class='trash icon'></i></button></td></tr>";
+
               $("table tbody").append(markup);
               clearFormData();
             });
@@ -133,7 +159,6 @@
         function clearFormData(){
           document.getElementById("in_quantity").value = null;
           document.getElementById("in_average").value = null;
-
         }
 
         // EXIBE A MENSAGEM PASSADA COMO PARAMETRO NA TELA DO NAVEGADOR
@@ -150,6 +175,7 @@
       <tr>
         <th>Lançado</th>
         <th>Ticker</th>
+        <th>Tipo</th>
         <th>CNPJ</th>
         <th>Razao Social</th>
         <th>Quantidade</th>
