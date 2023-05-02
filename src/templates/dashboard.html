@@ -96,6 +96,7 @@
 
 
           var unit
+
           var unit_description
 
           if (average){
@@ -111,6 +112,7 @@
             case 1:
               type_string = "ACAO";
               unit_description = "GRUPO:03 - CÓDIGO:01";
+              unit = " ACOES ";
               break;
             case 2:
               type_string = "FII";
@@ -134,8 +136,6 @@
               unit = " ACOES ";
               break;
             }
-          if (type == 0)
-
           var description = quantity + unit + companyName + " COM PRECO MEDIO DE "+ average + " POR UNIDADE."
           
           var year_sum = Number(Math.round(parseFloat(quantity * year_close + 'e' + 2)) + 'e-' + 2).toFixed(2)
