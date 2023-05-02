@@ -6,6 +6,30 @@ O formato é baseado em  [Keep a Changelog](https://keepachangelog.com/en/1.0.0/
 e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.3.0] - 21-04-2023
+## Added
+* #16 Adicionado coluna "Tipo" com icone para ajudar a selecionar o grupo certo no programa IRPF.
+* Inclusão dos ativos:
+    ```
+    BLMG11
+    SMALL11
+    TRIG11
+    ```
+
+## Fixed
+* #14
+
+* Atualização dos ativos:
+    ```
+    TAEE11
+    BTCL11
+    ARRI11
+    DEVA11
+    KNSC11
+    RBRR11
+    XPSF11
+    ```
+
 
 ## [1.2.1] - 21-04-2023
 ## Added
