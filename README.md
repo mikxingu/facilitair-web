@@ -18,6 +18,7 @@ Para visualizar as alterações efetuadas no projeto e novas features que serão
 O campo **Quantidade** é obrigatório, e o campo **Preço Médio** será utilizado na discriminação sugerida. Caso não informe o preço médio, será considerado o preço de fechamento anual do ativo.
 4. Depois de preenchidas as informações, clique no "+" para adicionar o ativo à lista. O sistema trará automaticamente as informações sobre o ativo.
 
+Criei [esse video](https://youtu.be/0qk8c0KQFBw) pra te ensinar como utilizar essa aplicação.
 
 Caso não encontre algum ativo, ou o ativo esteja descrito como "SEM INFO", abra uma issue [aqui](https://github.com/mikxingu/facilitair-web/issues) para que eu possa corrigir o problema.
 As informações contidas nesse sistema foram obtidas por meio de webscrapping e um levantamento manual, logo, algumas informações podem estar incorretas.
