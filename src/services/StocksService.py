@@ -22,6 +22,6 @@ def get_stock_information(ticker):
     """
     with database:
         cursor = database.cursor()
-        cursor.execute("SELECT type, cnpj, razao_social, price_2022 FROM stocks WHERE ticker = ? ", (ticker,))
+        cursor.execute("SELECT type, cnpj, razao_social, price_2023 FROM stocks WHERE ticker = ? ", (ticker,))
         stock = cursor.fetchone()
         return stock
