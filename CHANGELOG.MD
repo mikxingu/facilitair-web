@@ -6,6 +6,16 @@ O formato é baseado em  [Keep a Changelog](https://keepachangelog.com/en/1.0.0/
 e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.3.1] - 17-04-2024
+* Inclusão dos ativos:
+    ```
+    EXCO32
+    XPCA11
+    SNAG11
+    ```
+
+
 ## [1.3.0] - 21-04-2023
 ## Added
 * #16 Adicionado coluna "Tipo" com icone para ajudar a selecionar o grupo certo no programa IRPF.
