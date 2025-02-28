@@ -15,13 +15,15 @@ def get_stocks_db():
         for item in stocks:
             list.append(item[0]) #TRANSFORMA A TUPLA RETORNADA PELO DB EM LISTA.
         return list
-
-def get_stock_information(ticker):
+@staticmethod
+def get_stock_information(ticker: str, year: int):
     """
     Retorna os dados do ticker informado
     """
     with database:
         cursor = database.cursor()
-        cursor.execute("SELECT type, cnpj, razao_social, price_2023 FROM stocks WHERE ticker = ? ", (ticker,))
+        price_column = f"price_{year}"
+        query = f"SELECT type, cnpj, razao_social, {price_column} FROM stocks WHERE ticker = ?"
+        cursor.execute(query, (ticker,))
         stock = cursor.fetchone()
         return stock

@@ -7,6 +7,14 @@ e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ## [Unreleased]
 
+## [1.4.0] - 27-02-2024
+## Added
+* Adicionado valor de fechamento 2024 para as ações existentes.
+* Adicionado Google Ads e GoogleAnalytics Ids para o site.
+* Adicinado Dockerfile para dockerização da aplicação.
+* Alterado servidor de hospedagem de Heroku para Render.
+* Adicionado script para atualização do banco de dados.
+
 ## [1.3.1] - 17-04-2024
 * Inclusão dos ativos:
     ```
