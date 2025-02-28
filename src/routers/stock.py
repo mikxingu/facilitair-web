@@ -4,8 +4,8 @@ from src.services import StocksService
 
 router = APIRouter(prefix="/stock", tags=["stock"])
 
-@router.get("/{ticker}")
-async def get_single_stock(ticker: str):
+@router.get("/{ticker}/{year}")
+async def get_single_stock(ticker: str, year: int):
     """
     Retorna informações da ação para o ticker informado.
     Tipos de ações:
@@ -15,4 +15,4 @@ async def get_single_stock(ticker: str):
     4 - ETF
     """
     query_ticker = ticker.upper()
-    return StocksService.get_stock_information(query_ticker)
+    return StocksService.get_stock_information(query_ticker, year)
