@@ -1,0 +1,25 @@
+name: 🚀 Build & Deploy Docker Image
+
+on:
+  push:
+    branches: [ "main" ]  # Só roda quando há push na branch main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do Código
+      uses: actions/checkout@v4
+
+    - name: Login no Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+    - name: Build da Imagem Docker
+      run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/facilitair-web:latest .
+
+    - name: Push da Imagem para Docker Hub
+      run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/facilitair-web:latest
+
+    - name: Disparar Deploy no Render
+      run: curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
