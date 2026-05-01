@@ -24,7 +24,7 @@ def update_stock_prices(csv_file):
 
         for index, row in df.iterrows():
             ticker = row['ticker']
-            price_2024 = row['price_2024']
+            price_2025 = row['price_2025']
 
             # Verifique se o ticker já existe no banco de dados
             cursor.execute("SELECT COUNT(*) FROM stocks WHERE ticker = ?", (ticker,))
@@ -32,14 +32,14 @@ def update_stock_prices(csv_file):
 
             if count > 0:
                 # Atualize o preço da ação para 2024
-                cursor.execute("UPDATE stocks SET price_2024 = ?, time_last_modified = CURRENT_TIMESTAMP WHERE ticker = ?", (price_2024, ticker))
+                cursor.execute("UPDATE stocks SET price_2025 = ?, time_last_modified = CURRENT_TIMESTAMP WHERE ticker = ?", (price_2025, ticker))
             else:
                 # Insira um novo registro se o ticker não existir
-                cursor.execute("INSERT INTO stocks (ticker, price_2024, time_last_modified) VALUES (?, ?, CURRENT_TIMESTAMP)", (ticker, price_2024))
+                cursor.execute("INSERT INTO stocks (ticker, price_2025, time_last_modified) VALUES (?, ?, CURRENT_TIMESTAMP)", (ticker, price_2025))
 
         database.commit()
 
 if __name__ == "__main__":
-    csv_file = './src/update/price_2024.csv'  # Substitua pelo caminho do seu arquivo CSV
+    csv_file = './src/update/price_2025.csv'  # Substitua pelo caminho do seu arquivo CSV
     update_stock_prices(csv_file)
     print("Atualização concluída com sucesso!")

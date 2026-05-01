@@ -7,6 +7,11 @@ e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ## [Unreleased]
 
+## [1.5.0] - 30-04-2026
+## Added
+* Adicionado valor de fechamento 2025 para ações existentes.
+* Atualizado link do projeto no README.MD
+
 ## [1.4.0] - 27-02-2024
 ## Added
 * Adicionado valor de fechamento 2024 para as ações existentes.

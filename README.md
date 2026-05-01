@@ -12,7 +12,7 @@ Para visualizar as alterações efetuadas no projeto e novas features que serão
 
 # Como utilizar
 
-1. Abra o aplicativo por meio [desse link](https://facilitair.herokuapp.com/).
+1. Abra o aplicativo por meio [desse link](https://facilitair.techstrikebrasil.com.br/).
 2. Clique em "Começar".
 3. Selecione o ativo no **dropdown**, insira a quantidade de ações e o preço médio.
 O campo **Quantidade** é obrigatório, e o campo **Preço Médio** será utilizado na discriminação sugerida. Caso não informe o preço médio, será considerado o preço de fechamento anual do ativo.
