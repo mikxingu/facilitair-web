@@ -6,6 +6,17 @@ O formato é baseado em  [Keep a Changelog](https://keepachangelog.com/en/1.0.0/
 e esse projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.5.1] - 01-05-2026
+## Fixed
+* Correção dos valores dos ativos:
+    ```
+    BBDC3
+    BBAS3
+    TIMS3
+    WEGE3
+    VALE3
+    ```
+
 
 ## [1.5.0] - 30-04-2026
 ## Added
